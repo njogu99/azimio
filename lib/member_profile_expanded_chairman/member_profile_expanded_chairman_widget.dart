@@ -55,7 +55,7 @@ class _MemberProfileExpandedChairmanWidgetState
             color: FlutterFlowTheme.of(context).secondaryBackground),
         automaticallyImplyLeading: true,
         title: Text(
-          'President / Chairman',
+          'Principles',
           style: FlutterFlowTheme.of(context).bodyText1.override(
                 fontFamily: 'Muli',
                 color: FlutterFlowTheme.of(context).secondaryBackground,
@@ -102,10 +102,10 @@ class _MemberProfileExpandedChairmanWidgetState
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: StreamBuilder<List<ChairmanRecord>>(
-                                stream: queryChairmanRecord(
-                                  queryBuilder: (chairmanRecord) =>
-                                      chairmanRecord.orderBy('name'),
+                              child: StreamBuilder<List<PrinciplesRecord>>(
+                                stream: queryPrinciplesRecord(
+                                  queryBuilder: (principlesRecord) =>
+                                      principlesRecord.orderBy('id'),
                                 ),
                                 builder: (context, snapshot) {
                                   // Customize what your widget looks like when it's loading.
@@ -121,15 +121,17 @@ class _MemberProfileExpandedChairmanWidgetState
                                       ),
                                     );
                                   }
-                                  List<ChairmanRecord>
-                                      columnChairmanRecordList = snapshot.data;
+                                  List<PrinciplesRecord>
+                                      columnPrinciplesRecordList =
+                                      snapshot.data;
                                   return Column(
                                     mainAxisSize: MainAxisSize.max,
                                     children: List.generate(
-                                        columnChairmanRecordList.length,
+                                        columnPrinciplesRecordList.length,
                                         (columnIndex) {
-                                      final columnChairmanRecord =
-                                          columnChairmanRecordList[columnIndex];
+                                      final columnPrinciplesRecord =
+                                          columnPrinciplesRecordList[
+                                              columnIndex];
                                       return Padding(
                                         padding: EdgeInsetsDirectional.fromSTEB(
                                             0, 0, 0, 8),
@@ -150,7 +152,7 @@ class _MemberProfileExpandedChairmanWidgetState
                                                     child:
                                                         MemViewChairmanWidget(
                                                       memberDetailsChairman:
-                                                          columnChairmanRecord
+                                                          columnPrinciplesRecord
                                                               .reference,
                                                     ),
                                                   ),
@@ -200,8 +202,12 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                         5),
                                                             child:
                                                                 Image.network(
-                                                              columnChairmanRecord
-                                                                  .image,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnPrinciplesRecord
+                                                                    .image,
+                                                                'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
+                                                              ),
                                                               width: 120,
                                                               height: 140,
                                                               fit: BoxFit.cover,
@@ -230,11 +236,14 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .center,
+                                                                    .start,
                                                             children: [
                                                               Text(
-                                                                columnChairmanRecord
+                                                                columnPrinciplesRecord
                                                                     .name,
+                                                                textAlign:
+                                                                    TextAlign
+                                                                        .center,
                                                                 style: FlutterFlowTheme.of(
                                                                         context)
                                                                     .subtitle1
@@ -255,16 +264,16 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0,
-                                                                        5,
+                                                                        8,
                                                                         0,
-                                                                        5),
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Date Of Birth :',
+                                                                  'Role :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
@@ -280,13 +289,20 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10,
+                                                                          5,
                                                                           0,
                                                                           0,
                                                                           0),
                                                                   child: Text(
-                                                                    columnChairmanRecord
-                                                                        .dob,
+                                                                    columnPrinciplesRecord
+                                                                        .role
+                                                                        .maybeHandleOverflow(
+                                                                      maxChars:
+                                                                          17,
+                                                                      replacement:
+                                                                          '…',
+                                                                    ),
+                                                                    maxLines: 1,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -295,6 +311,8 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                               'Muli',
                                                                           fontSize:
                                                                               14,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
                                                                         ),
                                                                   ),
                                                                 ),
@@ -315,7 +333,7 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Manifesto :',
+                                                                  'Bio :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
@@ -339,8 +357,8 @@ class _MemberProfileExpandedChairmanWidgetState
                                                               children: [
                                                                 Expanded(
                                                                   child: Text(
-                                                                    columnChairmanRecord
-                                                                        .manifesto,
+                                                                    columnPrinciplesRecord
+                                                                        .bio,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -440,17 +458,17 @@ class _MemberProfileExpandedChairmanWidgetState
                                                                       ToggleIcon(
                                                                     onPressed:
                                                                         () async {
-                                                                      final chairmanUpdateData =
-                                                                          createChairmanRecordData(
+                                                                      final principlesUpdateData =
+                                                                          createPrinciplesRecordData(
                                                                         support:
-                                                                            !columnChairmanRecord.support,
+                                                                            !columnPrinciplesRecord.support,
                                                                       );
-                                                                      await columnChairmanRecord
+                                                                      await columnPrinciplesRecord
                                                                           .reference
                                                                           .update(
-                                                                              chairmanUpdateData);
+                                                                              principlesUpdateData);
                                                                     },
-                                                                    value: columnChairmanRecord
+                                                                    value: columnPrinciplesRecord
                                                                         .support,
                                                                     onIcon:
                                                                         Icon(

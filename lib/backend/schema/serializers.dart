@@ -2,7 +2,6 @@ import 'package:built_value/standard_json_plugin.dart';
 
 import 'users_record.dart';
 import 'governors_record.dart';
-import 'chairman_record.dart';
 import 'senator_record.dart';
 import 'mcas_record.dart';
 import 'mps_record.dart';
@@ -10,6 +9,8 @@ import 'womenrep_record.dart';
 import 'locations_record.dart';
 import 'county_record.dart';
 import 'rallies_record.dart';
+import 'polling_record.dart';
+import 'principles_record.dart';
 
 import 'index.dart';
 
@@ -22,7 +23,6 @@ const kDocumentReferenceField = 'Document__Reference__Field';
 @SerializersFor(const [
   UsersRecord,
   GovernorsRecord,
-  ChairmanRecord,
   SenatorRecord,
   McasRecord,
   MpsRecord,
@@ -30,6 +30,8 @@ const kDocumentReferenceField = 'Document__Reference__Field';
   LocationsRecord,
   CountyRecord,
   RalliesRecord,
+  PollingRecord,
+  PrinciplesRecord,
 ])
 final Serializers serializers = (_$serializers.toBuilder()
       ..add(DocumentReferenceSerializer())

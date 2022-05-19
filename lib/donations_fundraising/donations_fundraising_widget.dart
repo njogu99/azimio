@@ -1,6 +1,5 @@
 import '../auth/auth_util.dart';
 import '../backend/api_requests/api_calls.dart';
-import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../flutter_flow/flutter_flow_widgets.dart';
@@ -54,7 +53,7 @@ class _DonationsFundraisingWidgetState
         onTap: () => FocusScope.of(context).unfocus(),
         child: SingleChildScrollView(
           child: Column(
-            mainAxisSize: MainAxisSize.max,
+            mainAxisSize: MainAxisSize.min,
             children: [
               Row(
                 mainAxisSize: MainAxisSize.max,
@@ -702,30 +701,6 @@ class _DonationsFundraisingWidgetState
                     ),
                   ),
                 ],
-              ),
-              Padding(
-                padding: EdgeInsetsDirectional.fromSTEB(0, 32, 0, 8),
-                child: Row(
-                  mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.end,
-                  children: [
-                    Container(
-                      width: MediaQuery.of(context).size.width,
-                      height: 50,
-                      decoration: BoxDecoration(
-                        color: Color(0xFFEEEEEE),
-                      ),
-                      child: FlutterFlowAdBanner(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        showsTestAd: true,
-                        iOSAdUnitID: 'ca-app-pub-7962110952185306/7212030554',
-                        androidAdUnitID:
-                            'ca-app-pub-7962110952185306/1543140591',
-                      ),
-                    ),
-                  ],
-                ),
               ),
             ],
           ),

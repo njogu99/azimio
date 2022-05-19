@@ -6,7 +6,6 @@ import '../flutter_flow/flutter_flow_util.dart';
 
 import 'schema/users_record.dart';
 import 'schema/governors_record.dart';
-import 'schema/chairman_record.dart';
 import 'schema/senator_record.dart';
 import 'schema/mcas_record.dart';
 import 'schema/mps_record.dart';
@@ -14,6 +13,8 @@ import 'schema/womenrep_record.dart';
 import 'schema/locations_record.dart';
 import 'schema/county_record.dart';
 import 'schema/rallies_record.dart';
+import 'schema/polling_record.dart';
+import 'schema/principles_record.dart';
 import 'schema/serializers.dart';
 
 export 'dart:async' show StreamSubscription;
@@ -23,7 +24,6 @@ export 'schema/serializers.dart';
 
 export 'schema/users_record.dart';
 export 'schema/governors_record.dart';
-export 'schema/chairman_record.dart';
 export 'schema/senator_record.dart';
 export 'schema/mcas_record.dart';
 export 'schema/mps_record.dart';
@@ -31,6 +31,8 @@ export 'schema/womenrep_record.dart';
 export 'schema/locations_record.dart';
 export 'schema/county_record.dart';
 export 'schema/rallies_record.dart';
+export 'schema/polling_record.dart';
+export 'schema/principles_record.dart';
 
 /// Functions to query UsersRecords (as a Stream and as a Future).
 Stream<List<UsersRecord>> queryUsersRecord(
@@ -86,36 +88,6 @@ Future<FFFirestorePage<GovernorsRecord>> queryGovernorsRecordPage({
     queryCollectionPage(
       GovernorsRecord.collection,
       GovernorsRecord.serializer,
-      queryBuilder: queryBuilder,
-      nextPageMarker: nextPageMarker,
-      pageSize: pageSize,
-      isStream: isStream,
-    );
-
-/// Functions to query ChairmanRecords (as a Stream and as a Future).
-Stream<List<ChairmanRecord>> queryChairmanRecord(
-        {Query Function(Query) queryBuilder,
-        int limit = -1,
-        bool singleRecord = false}) =>
-    queryCollection(ChairmanRecord.collection, ChairmanRecord.serializer,
-        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
-
-Future<List<ChairmanRecord>> queryChairmanRecordOnce(
-        {Query Function(Query) queryBuilder,
-        int limit = -1,
-        bool singleRecord = false}) =>
-    queryCollectionOnce(ChairmanRecord.collection, ChairmanRecord.serializer,
-        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
-
-Future<FFFirestorePage<ChairmanRecord>> queryChairmanRecordPage({
-  Query Function(Query) queryBuilder,
-  DocumentSnapshot nextPageMarker,
-  int pageSize,
-  bool isStream,
-}) =>
-    queryCollectionPage(
-      ChairmanRecord.collection,
-      ChairmanRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,
@@ -326,6 +298,67 @@ Future<FFFirestorePage<RalliesRecord>> queryRalliesRecordPage({
     queryCollectionPage(
       RalliesRecord.collection,
       RalliesRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PollingRecords (as a Stream and as a Future).
+Stream<List<PollingRecord>> queryPollingRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(PollingRecord.collection, PollingRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<PollingRecord>> queryPollingRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(PollingRecord.collection, PollingRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<FFFirestorePage<PollingRecord>> queryPollingRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      PollingRecord.collection,
+      PollingRecord.serializer,
+      queryBuilder: queryBuilder,
+      nextPageMarker: nextPageMarker,
+      pageSize: pageSize,
+      isStream: isStream,
+    );
+
+/// Functions to query PrinciplesRecords (as a Stream and as a Future).
+Stream<List<PrinciplesRecord>> queryPrinciplesRecord(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollection(PrinciplesRecord.collection, PrinciplesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<List<PrinciplesRecord>> queryPrinciplesRecordOnce(
+        {Query Function(Query) queryBuilder,
+        int limit = -1,
+        bool singleRecord = false}) =>
+    queryCollectionOnce(
+        PrinciplesRecord.collection, PrinciplesRecord.serializer,
+        queryBuilder: queryBuilder, limit: limit, singleRecord: singleRecord);
+
+Future<FFFirestorePage<PrinciplesRecord>> queryPrinciplesRecordPage({
+  Query Function(Query) queryBuilder,
+  DocumentSnapshot nextPageMarker,
+  int pageSize,
+  bool isStream,
+}) =>
+    queryCollectionPage(
+      PrinciplesRecord.collection,
+      PrinciplesRecord.serializer,
       queryBuilder: queryBuilder,
       nextPageMarker: nextPageMarker,
       pageSize: pageSize,

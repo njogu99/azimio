@@ -206,8 +206,12 @@ class _MemberProfileExtendedMpsWidgetState
                                                                           5),
                                                               child:
                                                                   Image.network(
-                                                                columnMpsRecord
-                                                                    .image,
+                                                                valueOrDefault<
+                                                                    String>(
+                                                                  columnMpsRecord
+                                                                      .image,
+                                                                  'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
+                                                                ),
                                                                 width: 120,
                                                                 height: 140,
                                                                 fit: BoxFit
@@ -237,7 +241,7 @@ class _MemberProfileExtendedMpsWidgetState
                                                                       .max,
                                                               mainAxisAlignment:
                                                                   MainAxisAlignment
-                                                                      .center,
+                                                                      .start,
                                                               children: [
                                                                 Text(
                                                                   columnMpsRecord
@@ -261,16 +265,16 @@ class _MemberProfileExtendedMpsWidgetState
                                                                   EdgeInsetsDirectional
                                                                       .fromSTEB(
                                                                           0,
-                                                                          5,
+                                                                          8,
                                                                           0,
-                                                                          5),
+                                                                          0),
                                                               child: Row(
                                                                 mainAxisSize:
                                                                     MainAxisSize
                                                                         .max,
                                                                 children: [
                                                                   Text(
-                                                                    'Date Of Birth :',
+                                                                    'Region :',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -286,13 +290,21 @@ class _MemberProfileExtendedMpsWidgetState
                                                                   Padding(
                                                                     padding: EdgeInsetsDirectional
                                                                         .fromSTEB(
-                                                                            10,
+                                                                            5,
                                                                             0,
                                                                             0,
                                                                             0),
                                                                     child: Text(
                                                                       columnMpsRecord
-                                                                          .dob,
+                                                                          .region
+                                                                          .maybeHandleOverflow(
+                                                                        maxChars:
+                                                                            17,
+                                                                        replacement:
+                                                                            '…',
+                                                                      ),
+                                                                      maxLines:
+                                                                          1,
                                                                       style: FlutterFlowTheme.of(
                                                                               context)
                                                                           .bodyText1
@@ -301,55 +313,13 @@ class _MemberProfileExtendedMpsWidgetState
                                                                                 'Muli',
                                                                             fontSize:
                                                                                 14,
+                                                                            fontWeight:
+                                                                                FontWeight.w600,
                                                                           ),
                                                                     ),
                                                                   ),
                                                                 ],
                                                               ),
-                                                            ),
-                                                            Row(
-                                                              mainAxisSize:
-                                                                  MainAxisSize
-                                                                      .max,
-                                                              children: [
-                                                                Text(
-                                                                  'Region :',
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Muli',
-                                                                        fontSize:
-                                                                            14,
-                                                                        fontWeight:
-                                                                            FontWeight.bold,
-                                                                      ),
-                                                                ),
-                                                                Padding(
-                                                                  padding: EdgeInsetsDirectional
-                                                                      .fromSTEB(
-                                                                          5,
-                                                                          0,
-                                                                          0,
-                                                                          0),
-                                                                  child: Text(
-                                                                    columnMpsRecord
-                                                                        .region,
-                                                                    style: FlutterFlowTheme.of(
-                                                                            context)
-                                                                        .bodyText1
-                                                                        .override(
-                                                                          fontFamily:
-                                                                              'Muli',
-                                                                          fontSize:
-                                                                              14,
-                                                                          fontWeight:
-                                                                              FontWeight.w600,
-                                                                        ),
-                                                                  ),
-                                                                ),
-                                                              ],
                                                             ),
                                                             Padding(
                                                               padding:
@@ -365,7 +335,7 @@ class _MemberProfileExtendedMpsWidgetState
                                                                         .max,
                                                                 children: [
                                                                   Text(
-                                                                    'Manifesto :',
+                                                                    'Bio :',
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1

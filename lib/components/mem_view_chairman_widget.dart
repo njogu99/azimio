@@ -20,8 +20,8 @@ class MemViewChairmanWidget extends StatefulWidget {
 class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<ChairmanRecord>(
-      stream: ChairmanRecord.getDocument(widget.memberDetailsChairman),
+    return StreamBuilder<PrinciplesRecord>(
+      stream: PrinciplesRecord.getDocument(widget.memberDetailsChairman),
       builder: (context, snapshot) {
         // Customize what your widget looks like when it's loading.
         if (!snapshot.hasData) {
@@ -35,7 +35,7 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
             ),
           );
         }
-        final containerChairmanRecord = snapshot.data;
+        final containerPrinciplesRecord = snapshot.data;
         return Material(
           color: Colors.transparent,
           elevation: 4,
@@ -70,7 +70,7 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                         child: Text(
-                          containerChairmanRecord.name,
+                          containerPrinciplesRecord.name,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Muli',
@@ -91,7 +91,7 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(20, 0, 0, 0),
                         child: Text(
-                          'Date Of Birth: ',
+                          'Role: ',
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Muli',
@@ -104,55 +104,12 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
                       Padding(
                         padding: EdgeInsetsDirectional.fromSTEB(5, 0, 0, 0),
                         child: Text(
-                          containerChairmanRecord.dob,
+                          containerPrinciplesRecord.role,
                           style:
                               FlutterFlowTheme.of(context).bodyText1.override(
                                     fontFamily: 'Muli',
                                     color: Color(0xCE070606),
-                                  ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                        child: Text(
-                          'Popularity',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Muli',
-                                    color: Color(0xCE070606),
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
-                                  ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 5, 0, 0),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Padding(
-                        padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
-                        child: Text(
-                          '72%',
-                          textAlign: TextAlign.center,
-                          style:
-                              FlutterFlowTheme.of(context).bodyText1.override(
-                                    fontFamily: 'Muli',
-                                    color: Color(0xCE070606),
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w600,
+                                    fontSize: 16,
                                   ),
                         ),
                       ),
@@ -168,7 +125,7 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
                         child: Padding(
                           padding: EdgeInsetsDirectional.fromSTEB(20, 0, 20, 0),
                           child: Text(
-                            'Manifesto:',
+                            'Bio:',
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Muli',
@@ -191,7 +148,7 @@ class _MemViewChairmanWidgetState extends State<MemViewChairmanWidget> {
                       children: [
                         Expanded(
                           child: Text(
-                            containerChairmanRecord.manifesto,
+                            containerPrinciplesRecord.bio,
                             style:
                                 FlutterFlowTheme.of(context).bodyText1.override(
                                       fontFamily: 'Muli',

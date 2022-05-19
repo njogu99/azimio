@@ -1,4 +1,3 @@
-import '../flutter_flow/flutter_flow_ad_banner.dart';
 import '../flutter_flow/flutter_flow_animations.dart';
 import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
@@ -83,12 +82,12 @@ class _MemberProfileWidgetState extends State<MemberProfileWidget>
           ),
           child: Padding(
             padding: EdgeInsetsDirectional.fromSTEB(0, 10, 0, 0),
-            child: Column(
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Expanded(
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
+            child: SingleChildScrollView(
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Row(
+                    mainAxisSize: MainAxisSize.min,
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
@@ -178,7 +177,7 @@ class _MemberProfileWidgetState extends State<MemberProfileWidget>
                                                               .fromSTEB(
                                                                   5, 10, 5, 0),
                                                       child: Text(
-                                                        'Chairman',
+                                                        'Principles',
                                                         textAlign:
                                                             TextAlign.center,
                                                         style:
@@ -686,31 +685,8 @@ class _MemberProfileWidgetState extends State<MemberProfileWidget>
                       ),
                     ],
                   ),
-                ),
-                Padding(
-                  padding: EdgeInsetsDirectional.fromSTEB(0, 0, 0, 8),
-                  child: Row(
-                    mainAxisSize: MainAxisSize.max,
-                    children: [
-                      Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 50,
-                        decoration: BoxDecoration(
-                          color: Color(0xFFEEEEEE),
-                        ),
-                        child: FlutterFlowAdBanner(
-                          width: MediaQuery.of(context).size.width,
-                          height: 50,
-                          showsTestAd: true,
-                          iOSAdUnitID: 'ca-app-pub-7962110952185306/7613886623',
-                          androidAdUnitID:
-                              'ca-app-pub-7962110952185306/2342707636',
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         ).animated([animationsMap['containerOnPageLoadAnimation']]),

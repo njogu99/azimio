@@ -200,8 +200,12 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                         5),
                                                             child:
                                                                 Image.network(
-                                                              columnSenatorRecord
-                                                                  .image,
+                                                              valueOrDefault<
+                                                                  String>(
+                                                                columnSenatorRecord
+                                                                    .image,
+                                                                'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
+                                                              ),
                                                               width: 120,
                                                               height: 140,
                                                               fit: BoxFit.cover,
@@ -230,7 +234,7 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .center,
+                                                                    .start,
                                                             children: [
                                                               Text(
                                                                 columnSenatorRecord
@@ -255,16 +259,16 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0,
-                                                                        5,
+                                                                        8,
                                                                         0,
-                                                                        5),
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Date Of Birth :',
+                                                                  'Region :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
@@ -280,13 +284,20 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10,
+                                                                          5,
                                                                           0,
                                                                           0,
                                                                           0),
                                                                   child: Text(
                                                                     columnSenatorRecord
-                                                                        .dob,
+                                                                        .region
+                                                                        .maybeHandleOverflow(
+                                                                      maxChars:
+                                                                          17,
+                                                                      replacement:
+                                                                          '…',
+                                                                    ),
+                                                                    maxLines: 1,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -295,57 +306,13 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                               'Muli',
                                                                           fontSize:
                                                                               14,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
                                                                         ),
                                                                   ),
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                'Region :',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Muli',
-                                                                      fontSize:
-                                                                          14,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5,
-                                                                            0,
-                                                                            0,
-                                                                            0),
-                                                                child: Text(
-                                                                  columnSenatorRecord
-                                                                      .region,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Muli',
-                                                                        fontSize:
-                                                                            14,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
                                                           ),
                                                           Padding(
                                                             padding:
@@ -361,7 +328,7 @@ class _MemberProfileExpandedSenatorsWidgetState
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Manifesto :',
+                                                                  'Bio :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1

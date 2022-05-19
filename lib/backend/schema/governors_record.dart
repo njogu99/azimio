@@ -30,6 +30,9 @@ abstract class GovernorsRecord
   bool get support;
 
   @nullable
+  double get popularity;
+
+  @nullable
   @BuiltValueField(wireName: kDocumentReferenceField)
   DocumentReference get reference;
 
@@ -39,7 +42,8 @@ abstract class GovernorsRecord
     ..manifesto = ''
     ..dob = ''
     ..image = ''
-    ..support = false;
+    ..support = false
+    ..popularity = 0.0;
 
   static CollectionReference get collection =>
       FirebaseFirestore.instance.collection('governors');
@@ -69,6 +73,7 @@ Map<String, dynamic> createGovernorsRecordData({
   String dob,
   String image,
   bool support,
+  double popularity,
 }) =>
     serializers.toFirestore(
         GovernorsRecord.serializer,
@@ -78,4 +83,5 @@ Map<String, dynamic> createGovernorsRecordData({
           ..manifesto = manifesto
           ..dob = dob
           ..image = image
-          ..support = support));
+          ..support = support
+          ..popularity = popularity));

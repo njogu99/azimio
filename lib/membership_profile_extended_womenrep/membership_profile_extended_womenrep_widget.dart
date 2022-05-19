@@ -202,8 +202,12 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                             child:
                                                                 CachedNetworkImage(
                                                               imageUrl:
-                                                                  columnWomenrepRecord
-                                                                      .image,
+                                                                  valueOrDefault<
+                                                                      String>(
+                                                                columnWomenrepRecord
+                                                                    .image,
+                                                                'https://eitrawmaterials.eu/wp-content/uploads/2016/09/person-icon.png',
+                                                              ),
                                                               width: 120,
                                                               height: 140,
                                                               fit: BoxFit.cover,
@@ -232,7 +236,7 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                                     .max,
                                                             mainAxisAlignment:
                                                                 MainAxisAlignment
-                                                                    .center,
+                                                                    .start,
                                                             children: [
                                                               Text(
                                                                 columnWomenrepRecord
@@ -257,16 +261,16 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                                 EdgeInsetsDirectional
                                                                     .fromSTEB(
                                                                         0,
-                                                                        5,
+                                                                        8,
                                                                         0,
-                                                                        5),
+                                                                        0),
                                                             child: Row(
                                                               mainAxisSize:
                                                                   MainAxisSize
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Date Of Birth :',
+                                                                  'Region :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1
@@ -282,13 +286,20 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                                 Padding(
                                                                   padding: EdgeInsetsDirectional
                                                                       .fromSTEB(
-                                                                          10,
+                                                                          5,
                                                                           0,
                                                                           0,
                                                                           0),
                                                                   child: Text(
                                                                     columnWomenrepRecord
-                                                                        .dob,
+                                                                        .region
+                                                                        .maybeHandleOverflow(
+                                                                      maxChars:
+                                                                          17,
+                                                                      replacement:
+                                                                          '…',
+                                                                    ),
+                                                                    maxLines: 1,
                                                                     style: FlutterFlowTheme.of(
                                                                             context)
                                                                         .bodyText1
@@ -297,57 +308,13 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                                               'Muli',
                                                                           fontSize:
                                                                               14,
+                                                                          fontWeight:
+                                                                              FontWeight.w600,
                                                                         ),
                                                                   ),
                                                                 ),
                                                               ],
                                                             ),
-                                                          ),
-                                                          Row(
-                                                            mainAxisSize:
-                                                                MainAxisSize
-                                                                    .max,
-                                                            children: [
-                                                              Text(
-                                                                'Region :',
-                                                                style: FlutterFlowTheme.of(
-                                                                        context)
-                                                                    .bodyText1
-                                                                    .override(
-                                                                      fontFamily:
-                                                                          'Muli',
-                                                                      fontSize:
-                                                                          14,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .bold,
-                                                                    ),
-                                                              ),
-                                                              Padding(
-                                                                padding:
-                                                                    EdgeInsetsDirectional
-                                                                        .fromSTEB(
-                                                                            5,
-                                                                            0,
-                                                                            0,
-                                                                            0),
-                                                                child: Text(
-                                                                  columnWomenrepRecord
-                                                                      .region,
-                                                                  style: FlutterFlowTheme.of(
-                                                                          context)
-                                                                      .bodyText1
-                                                                      .override(
-                                                                        fontFamily:
-                                                                            'Muli',
-                                                                        fontSize:
-                                                                            14,
-                                                                        fontWeight:
-                                                                            FontWeight.w600,
-                                                                      ),
-                                                                ),
-                                                              ),
-                                                            ],
                                                           ),
                                                           Padding(
                                                             padding:
@@ -363,7 +330,7 @@ class _MembershipProfileExtendedWomenrepWidgetState
                                                                       .max,
                                                               children: [
                                                                 Text(
-                                                                  'Manifesto :',
+                                                                  'Bio :',
                                                                   style: FlutterFlowTheme.of(
                                                                           context)
                                                                       .bodyText1

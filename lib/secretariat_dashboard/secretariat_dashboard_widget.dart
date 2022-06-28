@@ -7,7 +7,6 @@ import '../flutter_flow/flutter_flow_theme.dart';
 import '../flutter_flow/flutter_flow_util.dart';
 import '../polling_analysis/polling_analysis_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class SecretariatDashboardWidget extends StatefulWidget {
   const SecretariatDashboardWidget({Key key}) : super(key: key);

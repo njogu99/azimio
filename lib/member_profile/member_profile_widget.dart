@@ -9,7 +9,6 @@ import '../member_profile_extended_mps/member_profile_extended_mps_widget.dart';
 import '../membership_profile_extended_mcas/membership_profile_extended_mcas_widget.dart';
 import '../membership_profile_extended_womenrep/membership_profile_extended_womenrep_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class MemberProfileWidget extends StatefulWidget {
   const MemberProfileWidget({Key key}) : super(key: key);

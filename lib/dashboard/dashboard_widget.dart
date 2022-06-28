@@ -12,7 +12,6 @@ import '../polling_analysis/polling_analysis_widget.dart';
 import '../profile/profile_widget.dart';
 import '../secretariat_dashboard/secretariat_dashboard_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class DashboardWidget extends StatefulWidget {
   const DashboardWidget({Key key}) : super(key: key);

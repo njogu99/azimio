@@ -1,4 +1,3 @@
-import '../../flutter_flow/flutter_flow_util.dart';
 
 import 'api_manager.dart';
 
@@ -16,10 +15,10 @@ class MpesaDonateCall {
   "Password": "MTc0Mzc5YmZiMjc5ZjlhYTliZGJjZjE1OGU5N2RkNzFhNDY3Y2QyZTBjODkzMDU5YjEwZjc4ZTZiNzJhZGExZWQyYzkxOTIwMjIwNTEyMTU0NDE5",
   "Timestamp": "20220512154419",
   "TransactionType": "CustomerPayBillOnline",
-  "Amount": "${amount}",
-  "PartyA": "${partyA}",
+  "Amount": "$amount",
+  "PartyA": "$partyA",
   "PartyB": 174379,
-  "PhoneNumber": "${phoneNumber}",
+  "PhoneNumber": "$phoneNumber",
   "CallBackURL": "https://mydomain.com/path",
   "AccountReference": "Azimio Donations",
   "TransactionDesc": "Payment of Donation"

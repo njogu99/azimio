@@ -11,7 +11,6 @@ import '../flutter_flow/upload_media.dart';
 import '../login_page/login_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class RegistrationPageWidget extends StatefulWidget {
   const RegistrationPageWidget({Key key}) : super(key: key);

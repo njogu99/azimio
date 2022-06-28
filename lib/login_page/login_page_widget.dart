@@ -7,7 +7,6 @@ import '../flutter_flow/flutter_flow_widgets.dart';
 import '../registration_page/registration_page_widget.dart';
 import 'package:easy_debounce/easy_debounce.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class LoginPageWidget extends StatefulWidget {
   const LoginPageWidget({Key key}) : super(key: key);
